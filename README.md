@@ -22,7 +22,7 @@ It also includes the predecesssor to the superpixel method reffered to as the Ha
 ### Examples of use
 
 1. [`Shaping_complex_fields.ipynb`](Shaping_complex_fields.ipynb): Demonstrates the shaping of LG, HG, and speckle fields using various types of holograms in different configurations.
-2. [`Quantization_complexvalues.ipynb`](Quantization_complexvalues.ipynb): Showcases the quantization of the complex values that can be encoded into a given hologram due to the pixelization of the DMD.
+2. [`Quantization_complex_values.ipynb`](Quantization_complex_values.ipynb): Showcases the quantization of the complex values that can be encoded into a given hologram due to the pixelization of the DMD.
 
 ## Citing the code
 
