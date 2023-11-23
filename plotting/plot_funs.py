@@ -1,7 +1,41 @@
 import numpy as np
 from colorsys import hls_to_rgb
 
-def colorize(z, theme = 'dark', saturation = 1., beta = 1.4, transparent = False, alpha = 1., max_threshold = 1):
+def colorize(z, 
+             theme = 'dark', 
+             saturation = 1., 
+             beta = 1.4, 
+             transparent = False, 
+             alpha = 1., 
+             max_threshold = 1):
+    """Transforms a complex valued array into an rgb one.
+    
+    The phase is encoded as hue and the amplitude as lightness. 
+
+    Parameters
+    ----------
+        z : ndarray
+            Complex valued array.
+        theme : {'dark', 'light'}, optional
+            For 'dark' the lightness value tends to zero as the amplitude 
+            diminishes and for 'light' it tends to one. 
+        saturation : float
+            Defines the saturation for hls
+        beta : float
+            Controls the scaling of lightness with respect to amplitude.
+        transparent : bool, optional
+            Whether to modify the alpha channel according to the amplitud.
+        alpha : float
+            Scaling for alpha channel controlling the opacity, 
+            'transparent' must be set to True.
+        max_threshold : float
+            Can be used to change the range for shown for the amplitude.
+
+    Returns
+    -------
+    c : ndarray
+        Returned array transformed into rgb format. 
+    """
     r = np.abs(z)
     r /= max_threshold*np.max(np.abs(r))
     arg = np.angle(z) 
