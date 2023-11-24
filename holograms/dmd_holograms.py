@@ -26,7 +26,7 @@ def holo_efficiency(nuvec):
     if nuvec[1]!=0:
         py = 1/nuvec[1]
         eta_dif *= px*np.sin(np.pi*px/py)/np.pi
-    return eta_dif
+    return eta_dif**2
 
 def _holo_preamble(field, nuvec, renorm=True):
     a = np.abs(field)
