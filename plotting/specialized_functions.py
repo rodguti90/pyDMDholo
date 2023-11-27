@@ -10,7 +10,7 @@ from .plot_funs import colorize, zoom_image
 # Adding patches
 
 def add_aperture(ax,sh,loc,rad, color='white',lw=2):
-    ax.add_patch(Ellipse(np.array(sh)//2-loc*np.array(sh), 
+    ax.add_patch(Ellipse(np.array(sh)/2-loc*np.array(sh), 
                             width=2*rad*sh[0],
                             height=2*rad*sh[1],
                             edgecolor=color,
@@ -76,7 +76,7 @@ def plot_four(four, ax=None, log=True, zoom=1, aperture=True, ap_loc=[0,0], ap_r
     
     ax.imshow(zoom_image(afour,zoom), cmap='inferno')
     if aperture:
-        add_aperture(ax, four.shape, ap_loc, ap_rad)
+        add_aperture(ax, np.array(four.shape)/zoom, ap_loc, zoom*ap_rad)
 
 
 def plot_fieldWzoom(field, ax=None, rz=0.1, lw=2, xyzoom=[0.5,0.5]):
