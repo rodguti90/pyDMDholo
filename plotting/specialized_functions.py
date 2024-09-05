@@ -65,7 +65,7 @@ def plot_holoWzoom(holo, ax=None, rz=0.1, lw=2, xyzoom=[0.5,0.5], interpolation=
         axins.spines[axis].set_linewidth(lw)
         axins.spines[axis].set_color('w')
 
-def plot_four(four, ax=None, log=True, zoom=1, aperture=True, ap_loc=[0,0], ap_rad=1/4):
+def plot_four(four, ax=None, log=True, zoom=1, aperture=True, ap_loc=[0,0], ap_rad=1/4, **kwargs):
     if ax is None:
         ax = plt.gca()
     ax.axis('off')
@@ -74,7 +74,7 @@ def plot_four(four, ax=None, log=True, zoom=1, aperture=True, ap_loc=[0,0], ap_r
     if log:
         afour = np.log(afour)
     
-    ax.imshow(zoom_image(afour,zoom), cmap='inferno')
+    ax.imshow(zoom_image(afour,zoom), cmap='inferno', **kwargs)
     if aperture:
         add_aperture(ax, np.array(four.shape)/zoom, ap_loc, zoom*ap_rad)
 
